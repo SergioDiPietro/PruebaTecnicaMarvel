@@ -1,0 +1,79 @@
+body {
+  margin: 0 auto;
+  box-sizing: border-box;
+  font-family: "Roboto", "Trebuchet MS", Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #202020;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.navContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  box-sizing: content-box;
+  width: 100%;
+
+  border-bottom: 1px solid #515151;
+  background-color: #202020;
+  font-weight: bolder;
+  color: yellow;
+}
+
+.navContainer:hover {
+  color: #515151;
+}
+
+.navLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 15%;
+  min-width: 8em;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  transition: 0.2s;
+  border-top: 3px solid #202020;
+  border-bottom: 3px solid #202020;
+  text-decoration: none;
+  color: white;
+  font-size: 1em;
+}
+
+.navLink:hover{
+  color: white;
+  border-bottom: #FE0000 3px solid;
+}
+
+.navLogo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-right: 10px;
+  padding-left: 5px;
+  height: 3em;
+  transition: 0.2s;
+
+  text-decoration: none;
+  color: white;
+  background-color: #FE0000;
+  border-top: 3px solid #FE0000;
+  border-bottom: 3px solid #FE0000;
+  font-size: 1em;
+  letter-spacing: -2px;
+}
+
+.navLogo:hover{
+  color: #202020;
+}
+
+.grid {
+  display: flex;
+  justify-content: center;
+}

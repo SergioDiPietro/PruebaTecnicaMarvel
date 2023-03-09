@@ -11,29 +11,19 @@ export const CustomCard = ({ values, handleOpen }) => {
   const category = useCategoryContext();
   const [header, setHeader] = useState("");
 
-  const setCategory = () => {
-    switch (category) {
-      case "characters":
-        setHeader(values.name);
-        break;
-      case "comics":
-        setHeader(values.title);
-        break;
-      case "series":
-        setHeader(values.title);
-        break;
-      default:
-        break;
-    }
-  }
+  const setHeaderAttribute = () => {
+    category === "characters"
+      ? setHeader(values.name)
+      : setHeader(values.title);
+  };
 
   useEffect(() => {
-    setCategory();
+    setHeaderAttribute();
   }, []);
 
   return (
-    <Grid item xs={12} sm={6} md={4} lg={3}>
-      <Card sx={{ height: 550, marginX: 3 }}>
+    <Grid item xs={12} sm={6} md={4} lg={3} justifyContent={'space-around'}>
+      <Card sx={{ height: 550, marginTop: 2 }}>
         <CardActionArea onClick={() => handleOpen(5)}>
           <CardMedia
             component="img"
@@ -45,7 +35,7 @@ export const CustomCard = ({ values, handleOpen }) => {
             <Typography gutterBottom variant="h5" component="div">
               {header}
             </Typography>
-            <Typography variant="body2" color="text.secondary" >
+            <Typography variant="body2" color="text.secondary" maxHeight={120} overflow-x={'scroll'}>
               {values.description === null || values.description === ""
                 ? "Sin descripción"
                 : values.description}

@@ -6,6 +6,7 @@ const comicsContext = React.createContext();
 const seriesContext = React.createContext();
 const setDataContext = React.createContext();
 const categoryContext = React.createContext();
+const setCategoryContext = React.createContext();
 
 export function useCharactersContext() {
   return useContext(charactersContext);
@@ -27,13 +28,21 @@ export function useCategoryContext() {
   return useContext(categoryContext);
 }
 
+export function useSetCategoryContext() {
+  return useContext(setCategoryContext);
+}
+
 export function MarvelDataProvider({ children }) {
   const [characters, setCharacters] = useState([]);
   const [comics, setComics] = useState([]);
   const [series, setSeries] = useState([]);
-  const [category, setCategory] = useState("");
+  const [categoryState, setCategoryState] = useState("");
 
-  async function setData(category) {
+  const setCategory = (category) => {
+    setCategoryState(category);
+  }
+
+  const setData = async (category) => {
     switch (category) {
       case "characters":
         if (characters.length <= 0) {
@@ -63,8 +72,10 @@ export function MarvelDataProvider({ children }) {
       <comicsContext.Provider value={comics}>
         <seriesContext.Provider value={series}>
           <setDataContext.Provider value={setData}>
-            <categoryContext.Provider value={category}>
-              {children}
+            <categoryContext.Provider value={categoryState}>
+              <setCategoryContext.Provider value={setCategory}>
+                {children}
+              </setCategoryContext.Provider>
             </categoryContext.Provider>
           </setDataContext.Provider>
         </seriesContext.Provider>

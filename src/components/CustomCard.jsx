@@ -22,8 +22,8 @@ export const CustomCard = ({ values, handleOpen }) => {
   }, []);
 
   return (
-    <Grid item xs={12} sm={6} md={4} lg={3} justifyContent={'space-around'}>
-      <Card sx={{ height: 550, marginTop: 2 }}>
+    <Grid item xs={12} sm={6} md={4} lg={3}>
+      <Card sx={{ height: 500 }}>
         <CardActionArea onClick={() => handleOpen(5)}>
           <CardMedia
             component="img"
@@ -32,10 +32,22 @@ export const CustomCard = ({ values, handleOpen }) => {
             alt="Thumbnail"
           />
           <CardContent>
-            <Typography gutterBottom variant="h5" component="div">
+            <Typography
+              gutterBottom
+              variant="h7"
+              component="div"
+              height={40}
+              overflow={"hidden"}
+              fontWeight={"bold"}
+            >
               {header}
             </Typography>
-            <Typography variant="body2" color="text.secondary" maxHeight={120} overflow-x={'scroll'}>
+            <Typography
+              variant="body2"
+              color="text.secondary"
+              height={80}
+              overflow={"auto"}
+            >
               {values.description === null || values.description === ""
                 ? "Sin descripción"
                 : values.description}
